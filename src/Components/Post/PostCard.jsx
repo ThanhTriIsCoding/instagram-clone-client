@@ -9,10 +9,13 @@ import "./PostCard.css";
 import { AiFillAlert, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
 import { RiSendPlaneLine } from "react-icons/ri";
+import CommentModel from "../Comment/CommentModel";
+import { useDisclosure } from "@chakra-ui/react";
 const PostCard = () => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [isPostLike, setIsPostLike] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleSavePost = () => {
     setIsSaved(!isSaved);
@@ -24,6 +27,11 @@ const PostCard = () => {
   const handleClick = () => {
     setShowDropDown(!showDropDown);
   };
+
+  const handleOpenCommentModal = () => {
+    onOpen();
+  };
+
   return (
     <div>
       <div className="border rounded-md w-full">
@@ -74,7 +82,10 @@ const PostCard = () => {
               />
             )}
 
-            <FaRegComment className="text-xl hover:opacity-50 cursor-pointer" />
+            <FaRegComment
+              onClick={handleOpenCommentModal}
+              className="text-xl hover:opacity-50 cursor-pointer"
+            />
             <RiSendPlaneLine className="text-xl hover:opacity-50 cursor-pointer" />
           </div>
 
@@ -111,6 +122,15 @@ const PostCard = () => {
           </div>
         </div>
       </div>
+
+      <CommentModel
+        handlePostLike={handlePostLike}
+        onClose={onClose}
+        isOpen={isOpen}
+        handleSavePost={handleSavePost}
+        isPostLike={isPostLike}
+        isSaved={isSaved}
+      />
     </div>
   );
 };
