@@ -40,7 +40,7 @@ const CommentModel = ({
                   alt=""
                 />
               </div>
-              <div className="border w-[55%] pl-10 relative">
+              <div className=" w-[55%] pl-10 relative">
                 <div className="flex justify-between items-center py-5">
                   <div className="flex items-center">
                     <div>

@@ -112,7 +112,7 @@ const PostCard = () => {
         </div>
 
         <div className="border border-t w-full">
-          <div className="flex w-full items-center px-5">
+          <div className="flex w-full items-center px-5 ">
             <BsEmojiSmile />
             <input
               className="commentInput"

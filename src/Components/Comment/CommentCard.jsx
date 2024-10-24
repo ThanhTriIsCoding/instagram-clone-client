@@ -33,12 +33,12 @@ const CommentCard = () => {
         {isCommentLike ? (
           <AiFillHeart
             onClick={handleLikeComment}
-            className="text-xs hover:opacity-50 cursor-pointer text-red-600"
+            className="text-xl hover:opacity-50 cursor-pointer text-red-600"
           />
         ) : (
           <AiOutlineHeart
             onClick={handleLikeComment}
-            className="text-xs hover:opacity-50 cursor-pointer"
+            className="text-xl hover:opacity-50 cursor-pointer"
           />
         )}
       </div>
